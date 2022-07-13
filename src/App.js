@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+
+let temp = 20;
+const spanStyles = {
+  fontSize: 24,
+  margin: 12,
+
+}
+
+const imagen = "https://home.ripley.com.pe/Attachment/WOP_5/2020286239596/2020286239596_2.jpg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <NavBar/>
+    <div className="contenedor">
+      <button style={{
+        width: 100,
+        borderRadius: 10,
+        backgroundColor: 'blue',
+      }}
+      >Aquí</button>
+
+      {/* Elementos autocloseables */}
+      <input placeholder='Ingresar datos' className='app-input'/>
+      <img src ={imagen} className="img" alt='balón'/>
+      <hr/>
+
+      <span style={spanStyles}>Valor de variable: {temp}</span>
     </div>
+    </>
   );
 }
 
