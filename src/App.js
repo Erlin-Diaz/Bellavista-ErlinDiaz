@@ -1,11 +1,13 @@
 import './App.css';
+import Button from './components/Button';
 import NavBar from './components/NavBar';
+import ItemListContainer from './container/ItemListContainer';
 
-let temp = 20;
+const temp = 20;
+const OpcionAlterna = "Eventos"
 const spanStyles = {
   fontSize: 24,
   margin: 12,
-
 }
 
 const imagen = "https://home.ripley.com.pe/Attachment/WOP_5/2020286239596/2020286239596_2.jpg";
@@ -13,24 +15,11 @@ const imagen = "https://home.ripley.com.pe/Attachment/WOP_5/2020286239596/202028
 function App() {
   return (
     <>
-    <NavBar/>
-    <div className="contenedor">
-      <button style={{
-        width: 100,
-        borderRadius: 10,
-        backgroundColor: 'blue',
-      }}
-      >Aquí</button>
+      <NavBar ciertaVariable = {temp} opcion={OpcionAlterna}/>
+      <ItemListContainer greeting="Catálogo de Productos...!!!"/>
 
-      {/* Elementos autocloseables */}
-      <input placeholder='Ingresar datos' className='app-input'/>
-      <img src ={imagen} className="img" alt='balón'/>
-      <hr/>
-
-      <span style={spanStyles}>Valor de variable: {temp}</span>
-    </div>
     </>
   );
 }
 
-export default App;
+export default App; 
