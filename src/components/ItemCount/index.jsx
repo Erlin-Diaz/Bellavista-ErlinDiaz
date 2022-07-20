@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './styles.css';
 
 const ItemCount = ({stock}) => {
 	
@@ -17,17 +18,18 @@ const ItemCount = ({stock}) => {
 	}
 
 	const handleAddCart = () =>{
-		document.write(`Se agregan ${cantidad} al carrito`)
+		alert(`Se agregan ${cantidad} al carrito`)
 	}
 
 
   return (
-	<div>
-		
-		<button onClick={disminuyeCantidad}>-</button>
-		<span>{cantidad}</span>
-		<button onClick={agregaCantidad}>+</button>
-		<button onClick={handleAddCart}>Agregar al carrito</button>
+	<div className='grupoCompra'>		
+		<div className='grupoMasMenos'>
+		<button className='disminuyeCantidadStyles' onClick={disminuyeCantidad}>-</button>
+		<span className='cantidadStyles'>{cantidad}</span>
+		<button className='agregaCantidadStyles' onClick={agregaCantidad}>+</button>
+		</div>
+		<button className='handleAddCartStyle' onClick={handleAddCart}>Agregar al carrito</button>
 	</div>
   )
 }
