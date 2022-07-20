@@ -2,5 +2,7 @@
 	float: right;
 	padding: 10px;
 	color:white
-
+}
+.cart-styles:hover{
+	color: #4CAF50;
 }

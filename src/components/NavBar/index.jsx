@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button";
+/* import Button from "../Button"; */
 import CartWidget from "../CartWidget";
 import './styles.css';
 
@@ -15,11 +15,11 @@ export default function NavBar({ciertaVariable, opcion}) {
 			<li><a href="#productos">Productos</a></li>
 			<li><a href={`#${opcion}`}>{opcion}</a></li>
 			<li><a href="#contact">Contacto</a></li>
-			<Button styles={{
+			{/* <Button styles={{
 				padding: 10,
 				margin: 6
 				}}
-			/>
+			/> */}
 			<CartWidget/>
 			
 		</ul>
