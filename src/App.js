@@ -1,19 +1,17 @@
 import './App.css';
-//import Button from './components/Button';
 import NavBar from './components/NavBar';
 import ItemListContainer from './container/ItemListContainer';
 
-const temp = 20;
-const OpcionAlterna = "Eventos"
-
 function App() {
+
+  const opcion = "Eventos"
+
   return (
     <>
-      <NavBar ciertaVariable = {temp} opcion={OpcionAlterna}/>
-      <ItemListContainer greeting="Catálogo de Productos...!!!"/>
-
+      <NavBar opcionAdicional={opcion}/>
+      <ItemListContainer greeting={"Hola comisión 28860"}/>
     </>
   );
 }
 
-export default App; 
+export default App;

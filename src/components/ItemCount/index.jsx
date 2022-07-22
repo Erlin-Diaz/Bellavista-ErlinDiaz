@@ -23,7 +23,7 @@ const ItemCount = ({stock}) => {
 
 
   return (
-	<div className='grupoCompra'>		
+	<div className='grupoCompra btn-group'>		
 		<div className='grupoMasMenos'>
 		<button className='disminuyeCantidadStyles' onClick={disminuyeCantidad}>-</button>
 		<span className='cantidadStyles'>{cantidad}</span>

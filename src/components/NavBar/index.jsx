@@ -4,22 +4,17 @@ import CartWidget from "../CartWidget";
 import './styles.css';
 
 
-export default function NavBar({ciertaVariable, opcion}) {
+export default function NavBar({opcionAdicional}) {
 
-	// 	console.log(ciertaVariable);
+
 
 	return (
-		<ul>
+		<ul className="navbar container-fluid fixed-top m-0 p-0 ">
 			<li><a className="active" href="#home">Home</a></li>
 			<li><a href="#nosotros">Nosotros</a></li>
 			<li><a href="#productos">Productos</a></li>
-			<li><a href={`#${opcion}`}>{opcion}</a></li>
+			<li><a href={`#${opcionAdicional}`}>{opcionAdicional}</a></li>
 			<li><a href="#contact">Contacto</a></li>
-			{/* <Button styles={{
-				padding: 10,
-				margin: 6
-				}}
-			/> */}
 			<CartWidget/>
 			
 		</ul>
