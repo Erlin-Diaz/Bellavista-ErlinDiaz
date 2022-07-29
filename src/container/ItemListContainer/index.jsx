@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React,  { useState }   from 'react'
 import ItemList from '../../components/ItemList';
-import { misProductos } from '../../mocks/productos';
+import { misProductos } from '../../mocks/productos'; 
 
 const ItemListContainer = ({greeting}) => {
 
@@ -24,7 +24,7 @@ const ItemListContainer = ({greeting}) => {
   console.log(productos);
   
  return (
-    <ItemList products={productos}/>
+    <ItemList products={productos} />
   )
 }
 
