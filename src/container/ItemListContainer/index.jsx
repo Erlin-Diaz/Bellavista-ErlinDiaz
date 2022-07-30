@@ -1,30 +1,34 @@
-import React,  { useState }   from 'react'
+import React,  { useEffect, useState }   from 'react'
 import ItemList from '../../components/ItemList';
-import { misProductos } from '../../mocks/productos'; 
 
 const ItemListContainer = ({greeting}) => {
 
   const [productos, setProductos] = useState([])
-  
+/*   
   const traerProductos = new Promise ((accept, reject)=> {
     setTimeout(()=> {
       accept(misProductos)
     }, 2000)
-  })
+  }) */
 
-  traerProductos
-  .then(result => {
-    setProductos(result)
-  })
-  .catch(error => {
-    alert(`Hubo un error: ${error}`)
-  })
+  useEffect(()=>{
 
+    const getProductos = async ()=>{
+      try{
+        const response = await fetch('/mocks/productos.json')
+        const data = await response.json();;
+        setProductos(data);
+      }catch(error) {
+        alert(`Hubo un error: ${error}`)
+      }
+    }
 
-  console.log(productos);
+    getProductos();
+
+  },[])
   
  return (
-    <ItemList products={productos} />
+    <ItemList productos={productos} />
   )
 }
 
