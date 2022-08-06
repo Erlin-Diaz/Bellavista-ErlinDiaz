@@ -4,7 +4,6 @@ import "./styles.css";
 const ItemCount = ({ stock , handleAddCart}) => {
 
   const [cantidad, setCantidad] = useState(1);
-  console.log("🚀 ~ file: index.jsx ~ line 7 ~ ItemCount ~ cantidad", cantidad)
 
   const agregaCantidad = () => {
     if (cantidad < stock) {

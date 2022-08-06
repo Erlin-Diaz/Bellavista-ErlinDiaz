@@ -9,9 +9,7 @@ const ItemDetail = ({productoDetalle}) => {
      const navigate = useNavigate();
      
      const handleConfirm = (cantidad) => {
-         console.log("🚀 ~ file: index.jsx ~ line 13 ~ handleConfirm ~ cantidad", cantidad)
          setCantidad(cantidad);
-         console.log("🚀 ~ file: index.jsx ~ line 9 ~ ItemDetail ~ agregarCantidad", cantidad)
     }
 
     const confirmaCompra = ()=>{
