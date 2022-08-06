@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock , handleAddCart}) => {
 
   const [cantidad, setCantidad] = useState(1);
+  console.log("🚀 ~ file: index.jsx ~ line 7 ~ ItemCount ~ cantidad", cantidad)
 
   const agregaCantidad = () => {
     if (cantidad < stock) {
@@ -17,10 +18,6 @@ const ItemCount = ({ stock }) => {
     }
   };
 
-  const handleAddCart = () => {
-    alert(`Se agregan ${cantidad} al carrito`);
-  };
-
   return (
     <>
       <div className="btn-group btn-group-lg d-flex justify-content-center mt-2" role="group" aria-label="Large button group">
@@ -28,7 +25,7 @@ const ItemCount = ({ stock }) => {
         <span className="input-group-text flex-grow-1 justify-content-center bg-light">{cantidad}</span>
         <button type="button" className="btn btn-outline-success" onClick={agregaCantidad}> + </button>
       </div>	
-        <button type="button" className="btn btn-success d-grid col-12 btn-lg mt-1 " onClick={handleAddCart}>Agregar a carrito</button>
+        <button type="button" className="btn btn-success d-grid col-12 btn-lg mt-1 " onClick={()=>handleAddCart(cantidad)}>Agregar a carrito</button>
     </>
   );
 };
