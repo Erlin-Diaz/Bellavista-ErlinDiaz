@@ -1,19 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { ShopData } from '../Context/Shop';
 import ItemCount from '../ItemCount'
 /* import { useNavigate } from 'react-router-dom' */
 
 const ItemDetail = ({productoDetalle}) => {
 
-     const [cantidad, setCantidad]=useState(0);
-     const navigate = useNavigate();
+    const {addItem} =useContext(ShopData);
+    
+    const [cantidad, setCantidad]=useState(0);
+
+    const navigate = useNavigate();
      
-     const handleConfirm = (cantidad) => {
+    const handleConfirm = (cantidad, ) => {
          setCantidad(cantidad);
+         addItem(productoDetalle,cantidad);
     }
 
-    const confirmaCompra = ()=>{
-        navigate('/Cart')
+    const confirmaCompra = (precio)=>{
+        navigate('/Cart');
+
     }
 
 	if (productoDetalle !== null) {
