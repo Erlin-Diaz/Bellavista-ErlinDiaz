@@ -1,0 +1,18 @@
+.cartStyles{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+	margin-top: 50px;
+/* 	height: 100vh;	
+	font-size: 1em; */
+}
+
+.stylesImg{
+	max-height: 150px;
+}
+
+.stylesFoot{
+	text-align: center;
+	font-size: 1.5em;
+}
