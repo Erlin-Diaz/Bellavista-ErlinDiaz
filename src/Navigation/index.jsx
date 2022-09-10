@@ -6,6 +6,7 @@ import ItemDetailContainer from "../container/ItemDetailContainer";
 import ItemListContainer from "../container/ItemListContainer";
 import NotFound from "../components/NotFound/Index";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Checkout from "../components/Checkout";
 
 const MainNavigator = () => {
   return (
@@ -19,8 +20,9 @@ const MainNavigator = () => {
             element={<ItemListContainer />}
           />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-          <Route path="*" element={<NotFound />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </ShopProvider>

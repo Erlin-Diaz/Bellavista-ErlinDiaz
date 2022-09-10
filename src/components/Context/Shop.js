@@ -6,6 +6,7 @@ const ShopProvider = ({children}) =>{
 	
 	const [ cart, setCart] = useState([]);
 	const [total, setTotal] = useState(0);
+	const [cantidadCart, setCantidadCart ] = useState(0);
 	
 	const estaEnCart = (productId)=>{
 		const productoEncontrado = cart.find(producto => producto.id === productId);
@@ -52,11 +53,16 @@ const ShopProvider = ({children}) =>{
 		 acumulador = acumulador + currentProduct.cantidad * currentProduct.precio,
 		 0)
 		 setTotal(total)
+
+		 const totalItems = cart.reduce((accumulator, currentProduct)=> accumulator = accumulator + currentProduct.cantidad,
+		 0)
+		 setCantidadCart(totalItems);
+
 	}, [cart] )
 
 
 	return (
-		<ShopData.Provider value = {{addItem, removeItem, clearCart, cart, total}}>
+		<ShopData.Provider value = {{addItem, removeItem, clearCart, cart, total, cantidadCart}}>
 			{children}
 		</ShopData.Provider>
 	  )

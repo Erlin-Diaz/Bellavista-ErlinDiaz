@@ -1,48 +1,15 @@
 import React, { useContext } from "react";
 import { ShopData } from "../../components/Context/Shop";
-import ordenGenerada from "../../services/generarOrden";
 import "./styles.css";
-import { collection, addDoc,getDoc } from "firebase/firestore";
-import { database } from "../../firebase/config";
-import { doc, updateDoc } from "firebase/firestore";
-import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+
 
 const Cart = () => {
   const { cart, removeItem, clearCart, total} = useContext(ShopData);
-  
-  const gestionCompra = async () =>{
-    const order = ordenGenerada("Erlin Díaz", "borzani@gmail.com", cart, total)
-    
-    // Add a new document with a generated id.
-    const docRef = await addDoc(collection(database, "orders"),order);
-    console.log("Document written with ID: ", docRef.id);
-    console.log("🚀 ~ file: Cart.jsx ~ line 13 ~ gestionCompra ~ order", order)
-  
-    //Actualizamos stock
-    for(const item of cart){
+  const navigate = useNavigate();
 
-      const docRef = doc(database, "productos", item.id);
-
-				const docSnap = await getDoc(docRef);
-				
-				if (docSnap.exists()) {
-          const productoOriginal = {id: docSnap.id, ...docSnap.data()}
-          const productoActualizar = doc(database, "productos", item.id);
-          // Set the "capital" field of the city 'DC'
-          await updateDoc(productoActualizar, {
-            stock: productoOriginal.stock - item.cantidad
-          });
-				} else {
-				  // doc.data() will be undefined in this case
-				  console.log("No such document!");
-				}
-    }
-    Swal.fire(
-      'N° de orden generada:',
-      docRef.id,
-      'success'
-    )
-    clearCart();
+  const gestionCompra=()=>{
+    navigate('/checkout');
   }
 
   return (
@@ -99,7 +66,7 @@ const Cart = () => {
           })}
         </tbody>
         <tfoot className="stylesFoot">
-          <td colspan="2">
+          <td>
             <button
               type="button"
               class="btn btn-outline-danger"
@@ -108,6 +75,7 @@ const Cart = () => {
               Limpiar carrito
             </button>
           </td>
+          <td></td>
           <td></td>
           <td colspan="2"> Total: S/. {total}</td>
           <td>
